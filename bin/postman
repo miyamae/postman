@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+Dir.chdir(File.dirname(__FILE__) + '/..') do
+  $LOAD_PATH.unshift('./classes')
+  require 'bundler'
+  Bundler.require
+  require 'application'
+  Application.start(ARGV)
+end

@@ -1,0 +1,11 @@
+.DS_Store
+.#*
+*~
+*.sublime-project
+*.sublime-workspace
+.rvmrc
+.ruby-version
+/.bundle
+/vendor/bundle
+/config/application.yml
+/mails
