@@ -5,5 +5,5 @@ Dir.chdir(File.dirname(__FILE__) + '/..') do
   require 'bundler'
   Bundler.require
   require 'application'
-  Application.start(ARGV)
 end
+Application.start(ARGV)

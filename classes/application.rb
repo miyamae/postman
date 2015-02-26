@@ -1,7 +1,7 @@
 require 'csv'
 
 class Settings < Settingslogic
-  source 'config/application.yml'
+  source File.dirname(__FILE__) + '/../config/application.yml'
 end
 
 class Application < Thor
@@ -9,7 +9,7 @@ class Application < Thor
   desc 'deliver <mail.txt> <address.csv>', 'Broadcast emails'
   option :test, type: :boolean
   def deliver(mail_file, address_file)
-    if File.exists?(mail_file) && File.exists?(address_file)
+    if File.file?(mail_file) && File.file?(address_file)
       /^(?<header>.*?\n)\n(?<body>.*)$/m =~ File.open(mail_file).read
       mail = Mail.new(charset: Settings[:charset])
       mail.delivery_method(:smtp, Settings.smtp_options.symbolize_keys)
